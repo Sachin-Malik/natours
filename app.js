@@ -12,6 +12,7 @@ const hpp = require('hpp');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
+const rewiewRouter = require('./routes/reviewRoutes');
 
 // GLOBAL MIDDLEWARES
 
@@ -52,6 +53,7 @@ app.use('/api/v1/tours/:id', (req, res, next) => {
 // ROUTES
 app.use('/api/v1/tours', tourRouter);
 app.use('api/v1/users', userRouter);
+app.use('/api/v1/reviews', rewiewRouter);
 
 app.use('*', (req, res, next) => {
   next(new AppError(`No valid path to ${req.originalUrl}`, 404));
